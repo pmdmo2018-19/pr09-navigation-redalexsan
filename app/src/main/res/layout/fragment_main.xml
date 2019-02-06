@@ -1,55 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinatorLayout">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<com.google.android.material.appbar.AppBarLayout
-    android:id="@+id/appbarLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/AppTheme.AppBarOverlay">
+    <data>
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        app:popupTheme="@style/AppTheme.PopupOverlay"/>
+        android:layout_height="match_parent"
+        android:id="@+id/coordinatorLayout">
 
-</com.google.android.material.appbar.AppBarLayout>
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dimension_8dp"
-        android:layout_marginTop="@dimen/dimension_8dp"
-        android:layout_marginEnd="@dimen/dimension_8dp"
-        android:layout_marginBottom="@dimen/dimension_8dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        >
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <TextView
-            android:id="@+id/txtLorem"
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimension_8dp"
+            android:layout_marginTop="@dimen/dimension_8dp"
+            android:layout_marginEnd="@dimen/dimension_8dp"
+            android:layout_marginBottom="@dimen/dimension_8dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:id="@+id/txtLorem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/main_latin_ipsum" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButtonMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/main_latin_ipsum" />
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="@dimen/dimension_8dp"
+            android:layout_marginBottom="@dimen/dimension_8dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_wrap_text_black_24dp"
+            android:tint="@color/white"
+            android:focusable="true"
+            />
 
-    </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButtonMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_marginEnd="@dimen/dimension_8dp"
-        android:layout_marginBottom="@dimen/dimension_8dp"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_wrap_text_black_24dp"
-        android:tint="@color/white"
-        android:focusable="true" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

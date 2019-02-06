@@ -17,10 +17,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import es.iessaladillo.pedrojoya.pr08.R;
 
 
 public class DetailFragment extends Fragment {
+
+    private NavController navController;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -31,6 +37,7 @@ public class DetailFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        navController = NavHostFragment.findNavController(this);
         setUpToolbar();
     }
 
@@ -38,10 +45,13 @@ public class DetailFragment extends Fragment {
         Toolbar toolbar = ViewCompat.requireViewById(requireView(),R.id.detailToolbar);
         ((AppCompatActivity)requireActivity()).setSupportActionBar(toolbar);
         CollapsingToolbarLayout collapsingToolbar = ViewCompat.requireViewById(requireView(),R.id.collapsingToolbar);
-        collapsingToolbar.setTitle("Detail");
 
-        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
-        toolbar.setNavigationOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
+//        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
+//        toolbar.setNavigationOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
+
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+
+        NavigationUI.setupWithNavController(collapsingToolbar,toolbar,navController,appBarConfiguration);
     }
 
 
